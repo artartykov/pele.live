@@ -1,0 +1,27 @@
+{
+	"name": "pele.live",
+	"private": true,
+	"type": "module",
+	"packageManager": "pnpm@10.33.0",
+	"license": "MIT",
+	"scripts": {
+		"build": "node scripts/build.mjs && tsc",
+		"dev": "pnpm build && (tsc --watch --preserveWatchOutput & NO_UPDATE_CHECK=1 serve dist --listen tcp://127.0.0.1:4317)",
+		"lint": "biome check .",
+		"format": "biome check --write .",
+		"typecheck": "tsc --noEmit && tsc -p e2e",
+		"test:e2e": "pnpm build && playwright test",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.6.4",
+		"@commitlint/cli": "^21.2.4",
+		"@commitlint/config-conventional": "^21.2.4",
+		"@playwright/test": "^1.64.1",
+		"@types/node": "^26.6.6",
+		"husky": "^9.1.7",
+		"pele": "^1.13.0",
+		"serve": "^14.2.6",
+		"typescript": "^7.0.2"
+	}
+}
